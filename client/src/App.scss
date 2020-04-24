@@ -1,0 +1,24 @@
+// Nav
+
+.nav-bar {
+  height: 3rem;
+  line-height: 3rem;
+  width: 90%;
+  margin: auto;
+  background: #f8f8f8;
+  text-align: right;
+}
+
+// register and login
+
+.reg-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 26vw;
+  height: auto;
+  padding: 2rem 4rem;
+  border-radius: 8px;
+  background: #f8f8f8;
+}
