@@ -1,8 +1,8 @@
 import React from 'react';
 
 function Landing() {
-  return (
-    <div>Landing Page</div>
+  return ( <
+    div className = "text-center mt-5" > MERN Boilerplate < /div>
   )
 }
 
