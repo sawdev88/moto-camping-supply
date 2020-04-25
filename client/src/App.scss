@@ -8,6 +8,7 @@
   text-align: right;
 }
 // register and login
+
 .reg-container {
   position: absolute;
   left: 50%;
@@ -18,4 +19,9 @@
   padding: 2rem 4rem;
   border-radius: 8px;
   background: #f8f8f8;
+
+  .form-error-msg {
+    color: #dc3545;
+    font-size: 0.7rem;
+  }
 }

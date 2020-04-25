@@ -13,12 +13,18 @@ function Register(props) {
   const [input, setInput] = useState({email: '', name: '', password: '', password2: '', errors: {}})
 
   useEffect(() => {
-    console.log(currentState)
     if (currentState.auth.isAuthenticated) {
       // redirect logged in user to dash
       props.history.push('/dashboard')
     }
   }, [currentState])
+
+  useEffect(() => {
+    setInput({
+      ...input,
+      errors: currentState.errors
+    })
+  }, [currentState.errors])
 
   const handleInputChange = event => {
     const {name, value} = event.target;
@@ -37,17 +43,25 @@ function Register(props) {
   return (<div className="reg-container">
     <h3 className="text-center mb-4">Register</h3>
     <form noValidate="noValidate" onSubmit={handleSubmit}>
-      <input className="form-control mb-2" type="email" name="email" placeholder="email" error={input.errors.email} onChange={handleInputChange}/>
-      <span className="red-text">{input.errors.email}</span>
+      <div className="mb-2">
+        <input className={classnames("form-control", {'is-invalid': input.errors.email})} type="email" name="email" placeholder="email" error={input.errors.email} onChange={handleInputChange}/>
+        <span className="form-error-msg">{input.errors.email}</span>
+      </div>
 
-      <input className="form-control mb-2" name="name" placeholder="username" error={input.errors.name} onChange={handleInputChange}/>
-      <span className="red-text">{input.errors.name}</span>
+      <div className="mb-2">
+        <input className={classnames("form-control", {'is-invalid': input.errors.name})} name="name" placeholder="username" error={input.errors.name} onChange={handleInputChange}/>
+        <span className="form-error-msg">{input.errors.name}</span>
+      </div>
 
-      <input className="form-control mb-2" type="password" name="password" placeholder="password" error={input.errors.password} onChange={handleInputChange}/>
-      <span className="red-text">{input.errors.passwor2}</span>
+      <div className="mb-2">
+        <input className={classnames("form-control", {'is-invalid': input.errors.password})} type="password" name="password" placeholder="password" error={input.errors.password} onChange={handleInputChange}/>
+        <span className="form-error-msg">{input.errors.password}</span>
+      </div>
 
-      <input className="form-control mb-4" type="password" name="password2" placeholder="confirm password" error={input.errors.password2} onChange={handleInputChange}/>
-      <span className="red-text">{input.errors.password2}</span>
+      <div className="mb-2">
+        <input className={classnames("form-control", {'is-invalid': input.errors.password2})} type="password" name="password2" placeholder="confirm password" error={input.errors.password2} onChange={handleInputChange}/>
+        <span className="form-error-msg">{input.errors.password2}</span>
+      </div>
 
       <button type="submit" className="btn btn-success w-100 mb-2">Create Account</button>
     </form>
