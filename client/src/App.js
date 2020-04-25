@@ -6,6 +6,7 @@ import {setCurrentUser, logoutUser} from "./actions/authActions";
 
 import {Provider} from "react-redux";
 import store from "./store";
+import {useSelector} from "react-redux";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
@@ -15,6 +16,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import Spinner from './components/elements/Spinner';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -39,7 +41,13 @@ if (localStorage.jwtToken) {
   }
 }
 
+function isLoading() {
+  console.log(store)
+  console.log(store.getState())
+}
+
 function App() {
+  const isLoading = store.getState().auth.loading;
   return (<Provider store={store}>
     <Router>
       <div className="App">
@@ -51,6 +59,7 @@ function App() {
           <PrivateRoute exact={true} path="/dashboard" component={Dashboard}/>
         </Switch>
       </div>
+      { isLoading && <Spinner /> }
     </Router>
   </Provider>);
 }

@@ -36,31 +36,35 @@ function Login(props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log('sign in')
     dispatch(loginUser(input))
+    console.log(currentState.auth.loading)
   };
 
-  return (<div className="reg-container">
-    <h3 className="text-center mb-4">Login</h3>
-    <form noValidate="noValidate" onSubmit={handleSubmit}>
-      <div className="mb-2">
-        <input className={classnames("form-control", {'is-invalid': input.errors.email})} type="email" name="email" placeholder="email" error={input.errors.email} onChange={handleInputChange}/>
-        <span className="form-error-msg">{input.errors.email}</span>
+  return (
+    <div>
+      <div className="reg-container">
+        <h3 className="text-center mb-4">Login</h3>
+        <form noValidate="noValidate" onSubmit={handleSubmit}>
+          <div className="mb-2">
+            <input className={classnames("form-control", {'is-invalid': input.errors.email})} type="email" name="email" placeholder="email" error={input.errors.email} onChange={handleInputChange}/>
+            <span className="form-error-msg">{input.errors.email}</span>
+          </div>
+
+          <div className="mb-2">
+            <input className={classnames("form-control", {'is-invalid': input.errors.password})} type="password" name="password" placeholder="password" error={input.errors.password} onChange={handleInputChange}/>
+            <span className="form-error-msg">{input.errors.password}</span>
+          </div>
+
+          <button type="submit" className="btn btn-success w-100 mb-2">Login</button>
+        </form>
+
+        <Link to="/register" className="btn btn-info w-100">Create Account</Link>
+        <div className="text-center mt-2">
+          <Link className="text-center" to="/">cancel</Link>
+        </div>
       </div>
-
-      <div className="mb-2">
-        <input className={classnames("form-control", {'is-invalid': input.errors.password})} type="password" name="password" placeholder="password" error={input.errors.password} onChange={handleInputChange}/>
-        <span className="form-error-msg">{input.errors.password}</span>
-      </div>
-
-      <button type="submit" className="btn btn-success w-100 mb-2">Login</button>
-    </form>
-
-    <Link to="/register" className="btn btn-info w-100">Create Account</Link>
-    <div className="text-center mt-2">
-      <Link className="text-center" to="/">cancel</Link>
     </div>
-  </div>)
+  )
 }
 
 Login.propTypes = {
