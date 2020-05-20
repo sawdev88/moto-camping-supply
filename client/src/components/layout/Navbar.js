@@ -16,8 +16,6 @@ function NavBar() {
       return (<span onClick={handleSignOut}>Logout</span>)
     } else {
       return (<div>
-        <Link to="/register" className="mr-4">Register</Link>
-        <Link to="/login">Login</Link>
       </div>)
     }
   }

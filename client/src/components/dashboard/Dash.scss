@@ -1,0 +1,82 @@
+.dash-container {
+  margin: 2rem 2rem 2rem 16rem;
+  padding: 3rem;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+body{
+  background: #f8f8f8;
+}
+
+.nav-bar {
+  background: #f8f8f8;
+}
+
+.logo {
+  text-align: center;
+  color: #f8f8f8;
+}
+
+.dash-nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 14rem;
+  background: #2d2d2d;
+  padding-top: 1rem;
+
+  .inner-nav li a {
+    padding-left: 2rem;
+    margin: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    color: #fff;
+  }
+
+  li a {
+    color: #f8f8f8;
+    display: block;
+    padding: .5rem 1rem;
+    margin: .5rem 0;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+
+    &:hover {
+      text-decoration: none;
+      padding-left: 1.5rem;
+    }
+  }
+
+  .active {
+    background: rgba(255,255,255,.2);
+  }
+}
+
+.table-actions {
+  font-size: 1.4rem;
+  cursor: pointer;
+
+  a {
+    // hack size until I add icons
+    font-size: 1.2rem;
+    color: #000;
+
+    &:hover {
+      text-decoration: none;
+      color: #008fff;
+    }
+  }
+
+  & span:hover {
+    color: #ff0040;
+  }
+}

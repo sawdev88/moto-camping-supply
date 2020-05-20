@@ -57,8 +57,6 @@ function Login(props) {
 
           <button type="submit" className="btn btn-success w-100 mb-2">Login</button>
         </form>
-
-        <Link to="/register" className="btn btn-info w-100">Create Account</Link>
         <div className="text-center mt-2">
           <Link className="text-center" to="/">cancel</Link>
         </div>
